@@ -45,7 +45,7 @@ def preprocess_data(
 def corrupt_mnist() -> tuple[torch.utils.data.Dataset, torch.utils.data.Dataset]:
     """Return train and test datasets for corrupt MNIST."""
     script_dir = os.path.dirname(os.path.abspath(__file__))  # Directory of the script
-    processed_dir = os.path.join(script_dir, "data/processed")
+    processed_dir = os.path.join(script_dir, "../../data/processed")
 
     train_images = torch.load(os.path.join(processed_dir, "train_images.pt"))
     train_target = torch.load(os.path.join(processed_dir, "train_target.pt"))
