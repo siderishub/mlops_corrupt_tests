@@ -8,10 +8,7 @@ def normalize(images: torch.Tensor) -> torch.Tensor:
     return (images - images.mean()) / images.std()
 
 
-def preprocess_data(
-    raw_dir: str = "../../data/raw", 
-    processed_dir: str = "../../data/processed"
-) -> None:
+def preprocess_data(raw_dir: str = "../../data/raw", processed_dir: str = "../../data/processed") -> None:
     """Process raw data and save it to the processed directory."""
     script_dir = os.path.dirname(os.path.abspath(__file__))  # Directory of the script
     raw_dir = os.path.join(script_dir, raw_dir)

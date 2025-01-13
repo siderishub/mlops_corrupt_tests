@@ -1,6 +1,7 @@
 from src.mlops.model import MyAwesomeModel
 import torch
 
+
 def test_model():
     model = MyAwesomeModel()
     x = torch.randn(1, 1, 28, 28)
