@@ -55,9 +55,9 @@ jobs:
 
       - name: Create credentials.json
         env:
-          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         run: |
-          echo $GDRIVE_CREDENTIALS_DATA > credentials_1.json
+          echo $GOOGLE_APPLICATION_CREDENTIALS > credentials_1.json
 
       - name: Modify DVC Remote
         run: |
