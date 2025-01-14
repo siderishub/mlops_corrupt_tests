@@ -53,19 +53,11 @@ jobs:
           pip install -r requirements_tests.txt
           pip list
 
-      - name: Create credentials.json
+      - uses: iterative/setup-dvc@v1
+      - name: Get data
+        run: dvc pull
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-        run: |
-          echo $GOOGLE_APPLICATION_CREDENTIALS > credentials_1.json
-
-      - name: Modify DVC Remote
-        run: |
-          dvc remote modify --local storage credentialpath credentials_1.json
-
-      - name: DVC Pull Data
-        run: |
-          dvc pull -v
+          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
       - name: Run tests & coverage
         run: |
